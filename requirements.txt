@@ -1,0 +1,21 @@
+# ===== Core =====
+Django==5.1.4
+djangorestframework==3.15.2
+
+# ===== Database (PostgreSQL) =====
+psycopg2-binary==2.9.10
+
+# ===== Authentication (JWT) — Phase 2 sathi =====
+djangorestframework-simplejwt==5.3.1
+
+# ===== API Documentation (Swagger) =====
+drf-spectacular==0.28.0
+
+# ===== Filtering / Search =====
+django-filter==24.3
+
+# ===== Config / Secrets (.env file vaachayla) =====
+python-decouple==3.8
+
+# ===== CORS (frontend connect karaychа asel tar) =====
+django-cors-headers==4.6.0

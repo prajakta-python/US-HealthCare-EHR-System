@@ -1,0 +1,32 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.pyc
+
+# ===== Virtual Environment =====
+venv/
+env/
+.venv/
+
+# ===== Django =====
+*.log
+db.sqlite3
+db.sqlite3-journal
+/staticfiles/
+/mediafiles/
+
+# ===== Secrets — KADHIHI git madhe nako! =====
+.env
+*.pem
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Docker =====
+postgres_data/
