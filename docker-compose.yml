@@ -1,0 +1,26 @@
+services:                          # ithun apan container-list suru hote
+
+  db:                              # aplya postgres container la "db" he naav dile
+    image: postgres:16             # Docker Hub varun PostgreSQL version 16 cha ready image gheto
+    container_name: healthcare_db_container   # chaltya container la disnare naav (olkhayla sope)
+    restart: unless-stopped        # crash zalа kiंva PC restart zalа tar postgres apoap parat chalu
+
+    environment:                   # postgres la suruvatीla lागnari settings (he .env shi MATCH haveत)
+      POSTGRES_DB: healthcare_db        # banavaychi database — .env madhlya DB_NAME shi same
+      POSTGRES_USER: healthcare_user    # database user — .env madhlya DB_USER shi same
+      POSTGRES_PASSWORD: healthcare_pass123  # password — .env madhlya DB_PASSWORD shi same
+
+    ports:                         # container chа port aplya PC shi jodtो
+      - "5433:5432"                # "PC cha 5433 : container cha 5432" — ata localhost:5433 ne connect hoil (5432 doosrya project ne vaprlа)
+
+    volumes:                       # data kuठे save karaychа (container band zalа tari data tiknyasathi)
+      - postgres_data:/var/lib/postgresql/data   # container chа data folder -> aplya "postgres_data" madhe
+
+    healthcheck:                   # postgres kharokhar tayar zalа ka te tapasto
+      test: ["CMD-SHELL", "pg_isready -U healthcare_user -d healthcare_db"]  # "ready aahes ka?" vichaarto
+      interval: 10s                # dar 10 second ne check karto
+      timeout: 5s                  # 5 second madhe uttar nahi aalа tar fail
+      retries: 5                   # 5 vेळा try karto
+
+volumes:                           # var vaaprlелा "postgres_data" volume ithे declare karto
+  postgres_data:                   # ha Docker manage karto — data kayam rahto
