@@ -43,11 +43,14 @@ THIRD_PARTY_APPS = [
 
 # Apan svatah banavnar te apps (atta rikame — Phase 2 pasun bharu)
 LOCAL_APPS = [
-    # 'apps.users',
+    'apps.users',
     # 'apps.patients',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+# Use our custom User model (email-based login) instead of Django's default
+AUTH_USER_MODEL = 'users.User'
 
 
 MIDDLEWARE = [
